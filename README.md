@@ -13,6 +13,9 @@
   <a href="https://discordapp.com/channels/1302530866362323016" target="_blank">
     <img src="https://img.shields.io/discord/1302530866362323016?style=flat-square&logo=discord&label=Discord&logoColor=ffffff&labelColor=7376CF&color=268165" alt="Discord" />
   </a>
+  <a href="https://dotfyle.com/plugins/yetone/avante.nvim">
+    <img src="https://dotfyle.com/plugins/yetone/avante.nvim/shield?style=flat-square" />
+  </a>
 </div>
 
 **avante.nvim** is a Neovim plugin designed to emulate the behaviour of the [Cursor](https://www.cursor.com) AI IDE. It provides users with AI-driven code suggestions and the ability to apply these recommendations directly to their source files with minimal effort.
@@ -130,7 +133,7 @@ add({
     'MunifTanjim/nui.nvim',
     'echasnovski/mini.icons'
   },
-  hooks = { post_checkout = function() vim.cmd('AvanteBuild source=false') end }
+  hooks = { post_checkout = function() vim.cmd('make') end }
 })
 --- optional
 add({ source = 'zbirenbaum/copilot.lua' })
@@ -169,10 +172,7 @@ require('avante').setup ({
 })
 ```
 
-> [!IMPORTANT]
->
-> For `avante.tokenizers` and templates to work, make sure to call `require('avante_lib').load()` somewhere when entering the editor.
-> We will leave the users to decide where it fits to do this, as this varies among configurations. (But we do recommend running this after where you set your colorscheme)
+**NOTE**: For <code>avante.tokenizers</code> and templates to work, make sure to call <code>require('avante_lib').load()</code> somewhere when entering the editor. We will leave the users to decide where it fits to do this, as this varies among configurations. (But we do recommend running this after where you set your colorscheme)
 
 </details>
 
@@ -187,19 +187,6 @@ require('avante').setup ({
 > ```lua
 > -- views can only be fully collapsed with the global statusline
 > vim.opt.laststatus = 3
-> ```
-
-> [!NOTE]
->
-> `render-markdown.nvim` is an optional dependency that is used to render the markdown content of the chat history. Make sure to also include `Avante` as a filetype
-> to its setup (e.g. via Lazy):
->
-> ```lua
-> {
->   "MeanderingProgrammer/render-markdown.nvim",
->   opts = { file_types = { "markdown", "Avante" } },
->   ft = { "markdown", "Avante" },
-> }
 > ```
 
 > [!TIP]
