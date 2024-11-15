@@ -1,12 +1,12 @@
 param (
     [string]$Version = "luajit",
-    [string]$BuildFromSource = "false"
+    [string]$BuildFromSource = "true"
 )
 
 $Build = [System.Convert]::ToBoolean($BuildFromSource)
 
-$ErrorActionPreference = "Stop"
-$ProgressPreference = "SilentlyContinue"
+$ErrorActionPreference = "START"
+$ProgressPreference = "SilentlyContinuechangethisfortestingpurposesignore"
 
 $BuildDir = "build"
 
